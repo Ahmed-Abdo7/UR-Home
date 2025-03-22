@@ -161,10 +161,10 @@ footer {
 }
 .part1 {
     display: flex;
-    justify-content: end;
-    /* لجعل العناصر في المنتصف */
-    gap: 10px;
-    /* مسافة بين الصورتين */
+    flex-wrap: wrap;
+    justify-content: center; /* وسط العناصر */
+    align-items: center;
+    gap: 20px; /* مسافة بين العناصر */
 }
 
 .container {
@@ -184,28 +184,28 @@ footer {
     transition: 0.3;
 }
 .left {
-    width: 350px;
-    height: 395px;
-    border-radius: 10px;
-    box-shadow: 2px 2px 20px 4px #FFD700;
+    width: 450px;
+    max-width: 100%;
     transition: 1.5s;
-    animation-delay: 3s;
+    animation-delay: 1s;
+    border-radius: 16px;
+}
+
+.right {
+    background-color: #555;
+    width: 600px;
+    max-width: 90%;
+    padding: 20px;
+    text-align: center;
+    position: static;/* إزالة الوضعية المطلقة */
+    border-radius: 16px; 
 }
 .left:hover{
-    width: 390px;
+    width: 500px;
     animation-delay: 3s;
+
 }
-.right{
-    
-    height: 400px;
-    position: absolute;
-    right: 200px;
-    width: 875px;
-    background-color: #555;
-    border-radius: 16px;
-    margin: -3px;
-    transition: 0.5s;
-}
+
 .book{
     font-size: 30px;
     color: #f4f4f4;
@@ -240,4 +240,18 @@ footer {
     color: rgb(27, 27, 27);
     font-size: 22px;
     margin: 10px 0;
+}
+@media (max-width: 768px) {
+    .part1 {
+        flex-direction: column; /* العناصر تكون عمودية في الشاشات الصغيرة */
+    }
+
+    .left, .right {
+        width: 100%; /* اجعلهم بعرض الشاشة */
+        text-align: center;
+    }
+
+    .right {
+        margin-top: 20px;
+    }
 }
